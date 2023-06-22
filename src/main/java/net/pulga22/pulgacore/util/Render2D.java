@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import net.pulga22.pulgacore.util.render2d.Pivot;
 import net.pulga22.pulgacore.util.render2d.PivotedRender;
 
-public abstract class Render2DUtils {
+public abstract class Render2D {
 
     /**
      * @param drawContext DrawContext of the render method.

@@ -10,7 +10,7 @@ import net.pulga22.pulgacore.blockentity.HorizontalFacingBlockEntity;
 import net.pulga22.pulgacore.util.render3d.MatricesInfo;
 import org.joml.Matrix4f;
 
-public abstract class Render3DUtils {
+public abstract class Render3D {
 
     /**
      * Render a quad facing in the direction which the block is facing.

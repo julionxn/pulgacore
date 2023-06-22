@@ -8,12 +8,13 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.pulga22.pulgacore.util.Render3D;
 import net.pulga22.pulgacore.util.render3d.MatricesInfo;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * A block entity capable of rendering a quad depending on the rotation of the block.
- * @see net.pulga22.pulgacore.util.Render3DUtils#renderRotatedQuad(HorizontalFacingBlockEntity, MatrixStack, Identifier, MatricesInfo, MatricesInfo)
+ * @see Render3D#renderRotatedQuad(HorizontalFacingBlockEntity, MatrixStack, Identifier, MatricesInfo, MatricesInfo)
  */
 public class HorizontalFacingBlockEntity extends BlockEntity {
 

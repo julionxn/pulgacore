@@ -3,7 +3,7 @@ package net.pulga22.pulgacore.util.render2d;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
-import net.pulga22.pulgacore.util.Render2DUtils;
+import net.pulga22.pulgacore.util.Render2D;
 
 public class PivotedRender {
 
@@ -44,27 +44,27 @@ public class PivotedRender {
 
     public void renderTexture(Identifier identifier, int width, int height){
         ScreenPosition screenPosition = getScreenPosition();
-        Render2DUtils.renderTexture(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, this.centered);
+        Render2D.renderTexture(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, this.centered);
     }
 
     public void renderTextureWithColor(Identifier identifier, int width, int height, int color){
         ScreenPosition screenPosition = getScreenPosition();
-        Render2DUtils.renderTextureWithColor(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, color, this.centered);
+        Render2D.renderTextureWithColor(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, color, this.centered);
     }
 
     public void renderTextureWithTransparencies(Identifier identifier, int width, int height){
         ScreenPosition screenPosition = getScreenPosition();
-        Render2DUtils.renderTextureWithTransparencies(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, this.centered);
+        Render2D.renderTextureWithTransparencies(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, this.centered);
     }
 
     public void renderTextureWithTransparenciesAndColor(Identifier identifier, int width, int height, int color){
         ScreenPosition screenPosition = getScreenPosition();
-        Render2DUtils.renderTextureWithTransparenciesAndColor(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, color, this.centered);
+        Render2D.renderTextureWithTransparenciesAndColor(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, color, this.centered);
     }
 
     public void renderText(String text, int color, boolean shadow){
         ScreenPosition screenPosition = getScreenPosition();
-        Render2DUtils.renderText(this.client, this.drawContext, text, screenPosition.getX(), screenPosition.getY(), color, shadow, this.centered);
+        Render2D.renderText(this.client, this.drawContext, text, screenPosition.getX(), screenPosition.getY(), color, shadow, this.centered);
     }
 
     public void renderTextWithoutShadows(String text, int color){

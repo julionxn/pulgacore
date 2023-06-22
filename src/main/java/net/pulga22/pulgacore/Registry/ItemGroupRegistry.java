@@ -17,6 +17,7 @@ public abstract class ItemGroupRegistry extends AbstractRegistry {
 
     /**
      * Call this method to register the item group of the mod.
+     * ALWAYS CALL THIS AFTER REGISTERING THE BLOCKS AND ITEMS.
      * @param id The unique id of the item group.
      * @param icon Item that appear in the tab.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
