@@ -22,7 +22,7 @@ public abstract class ItemGroupRegistry extends AbstractRegistry {
      * @param icon Item that appear in the tab.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    private static void register(String id, Item icon){
+    public static void register(String id, Item icon){
         MOD_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(PulgaCore.MOD_ID, id),
                 FabricItemGroup.builder()
                         .displayName(Text.translatable(PulgaCore.MOD_ID + id))
