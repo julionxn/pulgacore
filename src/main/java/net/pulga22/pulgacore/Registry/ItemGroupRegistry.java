@@ -22,16 +22,16 @@ public abstract class ItemGroupRegistry extends AbstractRegistry {
      * @param icon Item that appear in the tab.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void register(String id, Item icon){
+    public static void registerItemGroup(String id, Item icon){
         MOD_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(PulgaCore.MOD_ID, id),
                 FabricItemGroup.builder()
-                        .displayName(Text.translatable(PulgaCore.MOD_ID + id))
+                        .displayName(Text.translatable("group." + PulgaCore.MOD_ID + "." + id))
                         .icon(() -> new ItemStack(icon))
                         .entries(((displayContext, entries) -> {
-                            for(Block block : EntriesManager.getBlockEntries()){
+                            for(Block block : PulgaCore.MANAGER.getBlockEntries()){
                                 entries.add(block);
                             }
-                            for(Item item : EntriesManager.getItemEntries()){
+                            for(Item item : PulgaCore.MANAGER.getItemEntries()){
                                 entries.add(item);
                             }
                         }))

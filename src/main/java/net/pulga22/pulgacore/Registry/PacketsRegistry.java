@@ -40,7 +40,7 @@ public abstract class PacketsRegistry extends AbstractRegistry{
      * Call this method in the Client Mod Class to register all the packets.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerS2CPackets(){
+    public static void registerS2CPacketsCall(){
         for (Identifier identifier : S2C_ENTRIES.keySet()){
             ClientPlayNetworking.registerGlobalReceiver(identifier, S2C_ENTRIES.get(identifier));
         }
@@ -51,7 +51,7 @@ public abstract class PacketsRegistry extends AbstractRegistry{
      * Call this method in the Common Mod Class to register all the packets.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerC2SPackets(){
+    public static void registerC2SPacketsCall(){
         for (Identifier identifier : C2S_ENTRIES.keySet()){
             ServerPlayNetworking.registerGlobalReceiver(identifier, C2S_ENTRIES.get(identifier));
         }

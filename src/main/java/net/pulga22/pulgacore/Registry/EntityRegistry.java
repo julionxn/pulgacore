@@ -23,7 +23,7 @@ public abstract class EntityRegistry extends AbstractRegistry{
      * Call this method to register all the entities.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void register(){
+    public static void registerEntities(){
         register("entities");
     }
 

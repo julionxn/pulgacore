@@ -6,24 +6,28 @@ import net.minecraft.item.Item;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class EntriesManager {
+public class EntriesManager {
 
-    private static final List<Block> BLOCK_ENTRIES = new ArrayList<>();
-    private static final List<Item> ITEM_ENTRIES = new ArrayList<>();
+    public EntriesManager(){
 
-    protected static void addBlockEntry(Block block){
+    }
+
+    private final List<Block> BLOCK_ENTRIES = new ArrayList<>();
+    private final List<Item> ITEM_ENTRIES = new ArrayList<>();
+
+    protected void addBlockEntry(Block block){
         BLOCK_ENTRIES.add(block);
     }
 
-    protected static void addItemEntry(Item item){
+    protected void addItemEntry(Item item){
         ITEM_ENTRIES.add(item);
     }
 
-    public static List<Block> getBlockEntries(){
+    public List<Block> getBlockEntries(){
         return BLOCK_ENTRIES;
     }
 
-    public static List<Item> getItemEntries(){
+    public List<Item> getItemEntries(){
         return ITEM_ENTRIES;
     }
 

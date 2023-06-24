@@ -32,14 +32,14 @@ public abstract class ItemRegistry extends AbstractRegistry{
      */
     protected static Item registerItem(String id, Item item) {
         Item item1 = Registry.register(Registries.ITEM, new Identifier(PulgaCore.MOD_ID, id), item);
-        EntriesManager.addItemEntry(item1);
+        PulgaCore.MANAGER.addItemEntry(item1);
         return item1;
     }
     /**
      * Call this method to register all the items.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void register(){
+    public static void registerItems(){
         register("items");
     }
 

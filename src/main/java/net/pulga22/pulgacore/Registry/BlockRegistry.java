@@ -51,7 +51,7 @@ public abstract class BlockRegistry extends AbstractRegistry {
      */
     protected static Block registerOnlyBlock(String id, Block block){
         Block block1 = Registry.register(Registries.BLOCK, new Identifier(PulgaCore.MOD_ID, id), block);
-        EntriesManager.addBlockEntry(block1);
+        PulgaCore.MANAGER.addBlockEntry(block1);
         return block1;
     }
 
@@ -77,7 +77,7 @@ public abstract class BlockRegistry extends AbstractRegistry {
      * Call this method to register all the blocks.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void register() {
+    public static void registerBlocks() {
         register("blocks");
     }
 }

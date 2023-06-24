@@ -27,7 +27,7 @@ public abstract class BlockEntitiesRegistry extends AbstractRegistry{
      * Call this method to register all the block entities.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void register(){
+    public static void registerBlockEntities(){
         register("blockentities");
     }
 
