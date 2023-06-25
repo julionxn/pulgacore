@@ -11,7 +11,7 @@ public abstract class ItemRegistry extends AbstractRegistry{
 
     /**
      * @param id The unique id of the item.
-     * @return A generic item with anything special.
+     * @return A generic item without anything special.
      */
     protected static Item registerGeneric(String id) {
         return registerItem(id, new Item(new FabricItemSettings()));
@@ -32,7 +32,7 @@ public abstract class ItemRegistry extends AbstractRegistry{
      */
     protected static Item registerItem(String id, Item item) {
         Item item1 = Registry.register(Registries.ITEM, new Identifier(PulgaCore.MOD_ID, id), item);
-        PulgaCore.MANAGER.addItemEntry(item1);
+        EntriesManager.addItemEntry(item1);
         return item1;
     }
     /**

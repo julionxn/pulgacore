@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
           "net.pulga22.pulgacore.PulgaCore"
+		],
+		"client": [
+			"net.pulga22.pulgacore.PulgaCoreClient"
 		]
 	},
 	"mixins": [

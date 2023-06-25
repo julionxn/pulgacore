@@ -18,7 +18,7 @@ public abstract class BlockRegistry extends AbstractRegistry {
 
     /**
      * @param id The unique id of the block.
-     * @return A generic block with anything special.
+     * @return A generic block without anything special.
      */
     protected static Block registerGeneric(String id){
         return registerBlock(id, new Block(settingsOf(Blocks.STONE)));
@@ -51,7 +51,7 @@ public abstract class BlockRegistry extends AbstractRegistry {
      */
     protected static Block registerOnlyBlock(String id, Block block){
         Block block1 = Registry.register(Registries.BLOCK, new Identifier(PulgaCore.MOD_ID, id), block);
-        PulgaCore.MANAGER.addBlockEntry(block1);
+        EntriesManager.addBlockEntry(block1);
         return block1;
     }
 
