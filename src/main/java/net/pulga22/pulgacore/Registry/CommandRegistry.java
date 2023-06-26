@@ -19,7 +19,7 @@ public abstract class CommandRegistry extends AbstractRegistry{
     /**
      * Call this method to register all the commands.
      */
-    public static void registerCommands(){
+    protected static void registerCommands(){
         for (CommandRegistrationCallback callback : REGISTRATION_CALLBACKS){
             CommandRegistrationCallback.EVENT.register(callback);
         }

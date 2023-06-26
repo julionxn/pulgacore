@@ -39,7 +39,7 @@ public abstract class ItemRegistry extends AbstractRegistry{
      * Call this method to register all the items.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerItems(){
+    protected static void registerItems(){
         register("items");
     }
 

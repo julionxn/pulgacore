@@ -25,9 +25,8 @@ public abstract class ItemGroupRegistry extends AbstractRegistry {
      * @param modId The unique id of the mod.
      * @param groupId The unique id of the item group.
      * @param icon Item displayed in the tab.
-     * @see net.pulga22.pulgacore.Registry.ItemGroupRegistry#getGroup(String)
      */
-    public static void registerItemGroup(String modId, String groupId, Item icon){
+    protected static ItemGroup registerItemGroup(String modId, String groupId, Item icon){
         ItemGroup MOD_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(modId, groupId),
                 FabricItemGroup.builder()
                         .displayName(Text.translatable("group." + modId + "." + groupId))
@@ -42,16 +41,16 @@ public abstract class ItemGroupRegistry extends AbstractRegistry {
                         }))
                         .build());
         MOD_GROUPS.put(modId, MOD_GROUP);
-        register("itemgroup");
+        return MOD_GROUP;
     }
 
 
     /**
-     * @param modId The unique id of the mod.
-     * @return The item group of the mod.
+     * Call this method to register all the blocks.
+     * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static ItemGroup getGroup(String modId){
-        return MOD_GROUPS.get(modId);
+    public static void registerItemGroups() {
+        register("itemgroups");
     }
 
 }

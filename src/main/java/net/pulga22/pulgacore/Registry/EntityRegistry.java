@@ -11,7 +11,7 @@ public abstract class EntityRegistry extends AbstractRegistry{
 
     /**
      * @param id The unique id of the entity.
-     * @param entity The entity type which is being registered.
+     * @param entity The entity type which is being registered. (FabricEntityTypeBuilder)
      * @param <T> Extends of Entity.
      * @return The entity type registered.
      */
@@ -23,7 +23,7 @@ public abstract class EntityRegistry extends AbstractRegistry{
      * Call this method to register all the entities.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerEntities(){
+    protected static void registerEntities(){
         register("entities");
     }
 

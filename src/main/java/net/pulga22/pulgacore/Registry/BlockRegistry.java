@@ -77,7 +77,7 @@ public abstract class BlockRegistry extends AbstractRegistry {
      * Call this method to register all the blocks.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerBlocks() {
+    protected static void registerBlocks() {
         register("blocks");
     }
 }

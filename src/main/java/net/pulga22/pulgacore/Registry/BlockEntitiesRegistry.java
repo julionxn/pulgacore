@@ -15,7 +15,7 @@ public abstract class BlockEntitiesRegistry extends AbstractRegistry{
     /**
      * @param id The unique id of the block entity.
      * @param block The block that is attached to the block entity.
-     * @param blockEntity the block instance itself. (BlockEntity::new)
+     * @param blockEntity The block entity lambda. (BlockEntity::new)
      * @param <T> Extends of BlockEntity.
      * @return The block entity itself.
      */
@@ -27,7 +27,7 @@ public abstract class BlockEntitiesRegistry extends AbstractRegistry{
      * Call this method to register all the block entities.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerBlockEntities(){
+    protected static void registerBlockEntities(){
         register("blockentities");
     }
 

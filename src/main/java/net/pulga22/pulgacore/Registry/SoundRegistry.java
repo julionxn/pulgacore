@@ -32,7 +32,7 @@ public abstract class SoundRegistry extends AbstractRegistry{
      * Call this method to register all the sounds.
      * @see net.pulga22.pulgacore.PulgaCore#setModId(String)
      */
-    public static void registerSounds(){
+    protected static void registerSounds(){
         register("sounds");
     }
 
