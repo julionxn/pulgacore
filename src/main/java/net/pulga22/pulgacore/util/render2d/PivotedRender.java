@@ -4,18 +4,20 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
 import net.pulga22.pulgacore.util.Render2D;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class PivotedRender {
 
     private final MinecraftClient client;
-    private final DrawContext drawContext;
+    @Nullable private DrawContext drawContext;
     private final Pivot pivot;
     private int offsetX = 0;
     private int offsetY = 0;
     private boolean centered;
 
 
-    public PivotedRender(MinecraftClient client, DrawContext drawContext, Pivot pivot){
+    public PivotedRender(MinecraftClient client, @Nullable DrawContext drawContext, Pivot pivot){
         this.client = client;
         this.drawContext = drawContext;
         this.pivot = pivot;
@@ -42,28 +44,41 @@ public class PivotedRender {
         return this;
     }
 
+    public void setDrawContext(@Nullable DrawContext drawContext){
+        this.drawContext = drawContext;
+    }
+
+    public @Nullable DrawContext getDrawContext(){
+        return this.drawContext;
+    }
+
     public void renderTexture(Identifier identifier, int width, int height){
-        ScreenPosition screenPosition = getScreenPosition();
+        if (this.drawContext == null) return;
+        ScreenPosition screenPosition = getScreenPosition(this.drawContext);
         Render2D.renderTexture(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, this.centered);
     }
 
     public void renderTextureWithColor(Identifier identifier, int width, int height, int color){
-        ScreenPosition screenPosition = getScreenPosition();
+        if (this.drawContext == null) return;
+        ScreenPosition screenPosition = getScreenPosition(this.drawContext);
         Render2D.renderTextureWithColor(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, color, this.centered);
     }
 
     public void renderTextureWithTransparencies(Identifier identifier, int width, int height){
-        ScreenPosition screenPosition = getScreenPosition();
+        if (this.drawContext == null) return;
+        ScreenPosition screenPosition = getScreenPosition(this.drawContext);
         Render2D.renderTextureWithTransparencies(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, this.centered);
     }
 
     public void renderTextureWithTransparenciesAndColor(Identifier identifier, int width, int height, int color){
-        ScreenPosition screenPosition = getScreenPosition();
+        if (this.drawContext == null) return;
+        ScreenPosition screenPosition = getScreenPosition(this.drawContext);
         Render2D.renderTextureWithTransparenciesAndColor(this.drawContext, identifier, screenPosition.getX(), screenPosition.getY(), width, height, color, this.centered);
     }
 
     public void renderText(String text, int color, boolean shadow){
-        ScreenPosition screenPosition = getScreenPosition();
+        if (this.drawContext == null) return;
+        ScreenPosition screenPosition = getScreenPosition(this.drawContext);
         Render2D.renderText(this.client, this.drawContext, text, screenPosition.getX(), screenPosition.getY(), color, shadow, this.centered);
     }
 
@@ -75,9 +90,9 @@ public class PivotedRender {
         this.renderText(text, color, true);
     }
 
-    private ScreenPosition getScreenPosition(){
-        int screenWidth = this.drawContext.getScaledWindowWidth();
-        int screenHeight = this.drawContext.getScaledWindowHeight();
+    private ScreenPosition getScreenPosition(DrawContext drawContext){
+        int screenWidth = drawContext.getScaledWindowWidth();
+        int screenHeight = drawContext.getScaledWindowHeight();
         ScreenPosition screenPosition = getScreenPositionFromPivot(screenWidth, screenHeight, this.pivot);
         screenPosition.add(this.offsetX, this.offsetY);
         return screenPosition;

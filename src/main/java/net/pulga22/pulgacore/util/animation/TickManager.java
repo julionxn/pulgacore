@@ -4,37 +4,28 @@ import net.minecraft.client.MinecraftClient;
 
 public class TickManager {
 
-    public int tick = 1;
-    private final int length;
+    public int currentTick;
+    private final MinecraftClient client = MinecraftClient.getInstance();
     private float totalRenderTime;
 
-    /**
-     * @param length The total length of the tracker.
-     */
-    public TickManager(int length){
-        this.length = length;
+    public TickManager(int startingFrame){
+        this.currentTick = startingFrame;
     }
 
-    /**
-     * Call this method ALWAYS inside the tick method.
-     */
-    public void tick(){
-        if (length >= tick) this.tick = 0;
-        this.tick++;
+    public void changeStartingFrame(int startingFrame){
+        this.currentTick = startingFrame;
     }
 
-    /**
-     * Call this method ALWAYS inside the render method.
-     * @param client The minecraft client.
-     */
-    public boolean renderTick(MinecraftClient client){
+    public void tickFromTick(){
+        this.currentTick++;
+    }
+
+    public void tickFromRender(){
         totalRenderTime += client.getLastFrameDuration();
         if (totalRenderTime >= 1.0f){
-            this.tick();
+            this.tickFromTick();
             totalRenderTime = 0;
-            return true;
         }
-        return false;
     }
 
 }

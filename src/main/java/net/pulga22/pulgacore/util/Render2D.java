@@ -23,7 +23,6 @@ public abstract class Render2D {
      * @param identifier The identifier of the texture.
      */
     public static void renderFullScreen(DrawContext drawContext, Identifier identifier){
-        setDefaultColor(drawContext);
         renderTexture(drawContext, identifier, 0, 0, drawContext.getScaledWindowWidth(), drawContext.getScaledWindowHeight(), false);
     }
 
@@ -38,7 +37,6 @@ public abstract class Render2D {
      * @param centered If the position should be in the center of the render.
      */
     public static void renderTexture(DrawContext drawContext, Identifier identifier, int x, int y, int width, int height, boolean centered){
-        setDefaultColor(drawContext);
         if (centered){
             int offsetX = width / 2;
             int offsetY = height / 2;
@@ -81,7 +79,6 @@ public abstract class Render2D {
      */
     public static void renderTextureWithTransparencies(DrawContext drawContext, Identifier identifier, int x, int y, int width, int height, boolean centered){
         RenderSystem.enableBlend();
-        setDefaultColor(drawContext);
         renderTexture(drawContext, identifier, x, y, width, height, centered);
     }
 

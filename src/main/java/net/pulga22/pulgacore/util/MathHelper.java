@@ -3,7 +3,11 @@ package net.pulga22.pulgacore.util;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Contract;
 
+import java.util.Random;
+
 public abstract class MathHelper {
+
+    public static final Random random = new Random();
 
     /**
      * This method helps to clamp a rotation that goes 0 -> 180 -> -180 > 0

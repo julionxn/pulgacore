@@ -8,6 +8,7 @@ public abstract class Packets {
 
     public static Identifier SET_VALUE_C2S;
     public static Identifier SET_VALUE_S2C;
+    public static Identifier SYNC_C2S;
 
     public static void registerS2CPackets(){
         SET_VALUE_C2S = registerS2C(SetValueS2CPacket::onClient);
@@ -15,6 +16,7 @@ public abstract class Packets {
 
     public static void registerC2SPackets(){
         SET_VALUE_S2C = registerC2S(SetValueC2SPacket::onServer);
+        SYNC_C2S = registerC2S(SyncC2SPacket::onServer);
     }
 
     private static Identifier registerS2C(ClientPlayNetworking.PlayChannelHandler channelHandler){
