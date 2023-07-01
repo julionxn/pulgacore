@@ -17,6 +17,13 @@ public class PivotedRender {
     private boolean centered;
 
 
+    /**
+     * Anchor the animation to a point of the screen.
+     * @param client The client.
+     * @param drawContext The DrawContext of the method.
+     * @param pivot The pivot to anchor.
+     * @see net.pulga22.pulgacore.util.render2d.Pivot
+     */
     public PivotedRender(MinecraftClient client, @Nullable DrawContext drawContext, Pivot pivot){
         this.client = client;
         this.drawContext = drawContext;
@@ -88,6 +95,11 @@ public class PivotedRender {
 
     public void renderTextWithShadows(String text, int color){
         this.renderText(text, color, true);
+    }
+
+    public ScreenPosition getScreenPosition(){
+        if (this.drawContext == null) return new ScreenPosition(0, 0);
+        return getScreenPosition(this.drawContext);
     }
 
     private ScreenPosition getScreenPosition(DrawContext drawContext){
