@@ -78,10 +78,10 @@ public class Flipbook {
         }
         this.transparency = 1f;
         if (fadeIn && this.manager.currentTick <= this.fadeInStop){
-            this.transparency = (float) fadeInStop / this.manager.currentTick;
+            this.transparency = (float) this.manager.currentTick / fadeInStop;
         }
         if (fadeOut && this.manager.currentTick > this.fadeOutStart){
-            this.transparency = (float) this.fadeOutLength / (this.length - this.manager.currentTick);
+            this.transparency = (float) (this.length - this.manager.currentTick) / this.fadeOutLength;
         }
         this.frameUpdate();
     }
