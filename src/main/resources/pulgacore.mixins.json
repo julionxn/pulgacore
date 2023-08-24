@@ -3,7 +3,6 @@
 	"package": "net.pulga22.pulgacore.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-      "PlayerDataSaver"
 	],
 	"injectors": {
 		"defaultRequire": 1
